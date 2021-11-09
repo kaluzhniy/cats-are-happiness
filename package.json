@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "/cats",
   "author": "Dmitry Kalyuzhniy <amdv8@mail.ru>",
+  "homepage":"https://kaluzhniy.github.io/cats-are-happiness",
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@mui/material": "^5.0.6",
@@ -26,6 +27,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -50,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
