@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Dmitry Kalyuzhniy <amdv8@mail.ru>",
-  "homepage":"http://www.cats-are-happiness.fun",
+  "homepage":"https://www.cats-are-happiness.fun",
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@mui/material": "^5.0.6",
