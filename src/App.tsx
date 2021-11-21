@@ -7,6 +7,7 @@ function App() {
   const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
 
   useEffect(() => {
+    console.log(process.env)
     if(isLoading) return
     if(!isAuthenticated) {
       loginWithRedirect()
