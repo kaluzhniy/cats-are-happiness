@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     if (isLoading) return;
     if (!isAuthenticated) {
-      loginWithRedirect({ redirectUri: window.location.href });
+      loginWithRedirect();
     }
   }, [isAuthenticated, isLoading, loginWithRedirect]);
 
@@ -33,7 +33,7 @@ function App() {
               Learn React
             </a>
             <button
-              onClick={() => logout({ returnTo: window.location.origin })}
+              onClick={() => logout()}
             >
               Log Out
             </button>
