@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cats-are-happiness/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/cats-are-happiness/static/js/main.6e2a6f69.chunk.js",
-    "main.js.map": "/cats-are-happiness/static/js/main.6e2a6f69.chunk.js.map",
+    "main.js": "/cats-are-happiness/static/js/main.0a383100.chunk.js",
+    "main.js.map": "/cats-are-happiness/static/js/main.0a383100.chunk.js.map",
     "runtime-main.js": "/cats-are-happiness/static/js/runtime-main.57eeb8f9.js",
     "runtime-main.js.map": "/cats-are-happiness/static/js/runtime-main.57eeb8f9.js.map",
     "static/js/2.a9fc3f22.chunk.js": "/cats-are-happiness/static/js/2.a9fc3f22.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.57eeb8f9.js",
     "static/js/2.a9fc3f22.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.6e2a6f69.chunk.js"
+    "static/js/main.0a383100.chunk.js"
   ]
 }
