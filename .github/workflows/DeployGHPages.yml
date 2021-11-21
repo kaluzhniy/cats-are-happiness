@@ -9,17 +9,16 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
-
-      - name: Install and Build 🔧
-        env:
-          REACT_APP_AUTH0_DOMAIN: ${{ secrets.REACT_APP_AUTH0_DOMAIN }}
-          REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.REACT_APP_AUTH0_CLIENT_ID }}
+      - name: Create env file
         run: |
-          echo 'REACT_APP_AUTH0_DOMAIN=$REACT_APP_AUTH0_DOMAIN' >> .env
-          echo 'REACT_APP_AUTH0_CLIENT_ID=$REACT_APP_AUTH0_CLIENT_ID' >> .env
+          touch .env
+          echo REACT_APP_AUTH0_DOMAIN=${{ secrets.REACT_APP_AUTH0_DOMAIN }} >> .env
+          echo REACT_APP_AUTH0_CLIENT_ID=${{ secrets.REACT_APP_AUTH0_CLIENT_ID }} >> .env
+          cat .env
+      - name: Install and Build 🔧
+        run: |
           yarn
           yarn build
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.6
         with:
