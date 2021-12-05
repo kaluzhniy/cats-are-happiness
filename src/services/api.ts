@@ -1,39 +1,16 @@
 import axios, {
-    AxiosError,
+  AxiosError,
   AxiosInstance,
   AxiosRequestConfig,
   AxiosRequestHeaders,
   AxiosResponse,
 } from "axios";
-
-enum StatusCode {
-  Unauthorized = 401,
-  Forbidden = 403,
-  TooManyRequests = 429,
-  InternalServerError = 500,
-}
+import { CATS_API_KEY } from "../config";
 
 const headers: AxiosRequestHeaders = {
-    
+  "x-api-key": CATS_API_KEY,
 };
-const baseURL = "";
-
-const injectToken = (
-  config: AxiosRequestConfig,
-  tokenName?: string
-): AxiosRequestConfig => {
-  if (!tokenName) return config;
-  try {
-    const token = localStorage.getItem(tokenName);
-
-    if (token != null && config.headers) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  } catch (error) {
-    throw error;
-  }
-};
+const baseURL = "https://api.thecatapi.com/v1";
 
 class Http {
   private instance: AxiosInstance | null = null;
@@ -60,11 +37,6 @@ class Http {
       baseURL: this.baseUrl,
       headers: this.headers,
     });
-
-    http.interceptors.request.use(
-      (config) => injectToken(config, this.tokenName),
-      (error) => Promise.reject(error)
-    );
 
     http.interceptors.response.use(
       (response) => response,
@@ -115,7 +87,6 @@ class Http {
   }
 
   private handleError(error: AxiosError) {
-      console.error(error)
     return Promise.reject(error);
   }
 }
