@@ -9,7 +9,7 @@ export enum MIME_TYPES {
   ALL = "jpg,png,gif",
 }
 
-export const RandomCatStore = types
+const RandomCatStore = types
   .model("RandomCatStore", {
     currentCat: types.maybeNull(RandomCat),
   })
@@ -27,3 +27,5 @@ export const RandomCatStore = types
       }
     }),
   }));
+
+  export default RandomCatStore
