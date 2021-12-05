@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 
 import { PageTitle } from "common/components/PageTitle";
 import { useStore } from "common/hooks/useStore";
-import { MIME_TYPES } from "./store";
+import { MIME_TYPES } from "common/store/RandomCatStore";
 
 export const RandomCatsPage: React.FC = observer(() => {
   const { randomCatStore } = useStore();
