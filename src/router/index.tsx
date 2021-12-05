@@ -1,5 +1,5 @@
 import { MainTemplate } from "common/components/MainTemplate";
-import { RandomCatsPage } from "Pages/RandomCats";
+import { RandomCatsPage } from "pages/RandomCats";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

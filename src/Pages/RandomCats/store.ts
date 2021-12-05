@@ -21,7 +21,7 @@ export const RandomCatStore = types
             mime_types: type,
           },
         });
-        self.currentCat = res.data[0]
+        self.currentCat = res.data[0];
       } catch (error) {
         console.log(error);
       }

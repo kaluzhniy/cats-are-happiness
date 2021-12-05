@@ -10,7 +10,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import { Menu as MenuIcon, AccountCircle, Palette } from "@mui/icons-material";
+import { Menu as MenuIcon, AccountCircle } from "@mui/icons-material";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { IUser } from "common/Interfaces/User";
