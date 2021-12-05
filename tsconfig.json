@@ -22,6 +22,10 @@
     "jsx": "react-jsx",
     "noImplicitReturns": true
   },
+  "exclude": [
+    "build",
+    "node_modules"
+  ],
   "include": [
     "src"
   ]

@@ -18,7 +18,6 @@ jobs:
           cat .env
       - name: Install and Build 🔧
         run: |
-          rm -rf node_modules
           yarn
           yarn build
       - name: Deploy 🚀
