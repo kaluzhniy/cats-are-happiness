@@ -1,7 +1,7 @@
 import { types, flow } from "mobx-state-tree";
 import { http } from "services/api";
 import { GET_RANDOM_CAT } from "services/paths";
-import { RandomCat } from "pages/RandomCats/models/RandomCat";
+import { RandomCat } from "./models/RandomCat";
 
 export enum MIME_TYPES {
   ANIMATED = "gif",

@@ -1,7 +1,7 @@
 import React from "react";
 import { types, Instance } from "mobx-state-tree";
 
-import { RandomCatStore } from "./RandomCatStore";
+import { RandomCatStore } from "pages/RandomCats/RandomCatStore";
 const store = types
   .model({
     randomCatStore: RandomCatStore,
