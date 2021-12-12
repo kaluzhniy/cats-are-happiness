@@ -1,23 +1,45 @@
-import React, { useCallback, useEffect } from "react";
-import { Button, Grid, Card, CardMedia, CardActions } from "@mui/material";
+import React, { useCallback, useEffect, useState } from "react";
+import { Grid, Card, CardMedia, CardActions, Tab, Tabs } from "@mui/material";
 import { observer } from "mobx-react";
 
 import { PageTitle } from "common/components/PageTitle";
 import { useStore } from "common/hooks/useStore";
 import { MIME_TYPES } from "./RandomCatStore";
+import { ButtonWithProgress } from "common/components/ButtonWithProgress";
 
 export const RandomCatsPage: React.FC = observer(() => {
+  const [loading, setIsLoading] = useState(false);
+  const [mimeTabValue, setMimeTabValue] = useState(MIME_TYPES.ALL);
   const { randomCatStore } = useStore();
-  const getCat = useCallback(() => {
-    randomCatStore.getRandomCat(MIME_TYPES.ANIMATED);
-  }, [randomCatStore]);
+  const getCat = useCallback(async () => {
+    setIsLoading(true);
+    await randomCatStore.getRandomCat(mimeTabValue);
+    setIsLoading(false);
+  }, [mimeTabValue, randomCatStore]);
   useEffect(() => {
     getCat();
   }, [getCat]);
 
+  const handleMimeTabChange = (
+    e: React.SyntheticEvent,
+    newValue: MIME_TYPES
+  ) => {
+    setMimeTabValue(newValue);
+  };
+
   return (
-    <Grid container direction="column" alignItems="center" sx={{height: "100%"}}>
+    <Grid
+      container
+      direction="column"
+      alignItems="center"
+      sx={{ height: "100%" }}
+    >
       <PageTitle>Random cat</PageTitle>
+      <Tabs sx={{ pb: 1 }} onChange={handleMimeTabChange} value={mimeTabValue}>
+        <Tab label="All" value={MIME_TYPES.ALL} />
+        <Tab label="Static" value={MIME_TYPES.STATIC} />
+        <Tab label="Animated" value={MIME_TYPES.ANIMATED} />
+      </Tabs>
       {randomCatStore.currentCat && (
         <Grid container alignItems="center" justifyContent="center">
           <Card sx={{ borderRadius: 4 }}>
@@ -29,9 +51,16 @@ export const RandomCatsPage: React.FC = observer(() => {
               sx={{ objectFit: "contain" }}
             />
             <CardActions sx={{ pt: 2, pb: 2 }}>
-              <Button variant="contained" color="primary" onClick={getCat}>
-                ONE MORE CAT
-              </Button>
+              <Grid container justifyContent="center">
+                <ButtonWithProgress
+                  variant="contained"
+                  color="primary"
+                  loading={loading}
+                  onClick={getCat}
+                >
+                  One more cat
+                </ButtonWithProgress>
+              </Grid>
             </CardActions>
           </Card>
         </Grid>
