@@ -16,20 +16,14 @@ class Http {
   private instance: AxiosInstance | null = null;
   private headers: AxiosRequestHeaders;
   private baseUrl: string;
-  private tokenName: string | undefined;
 
   private get http(): AxiosInstance {
     return this.instance != null ? this.instance : this.initHttp();
   }
 
-  constructor(
-    headers: AxiosRequestHeaders,
-    baseUrl: string,
-    tokenName?: string
-  ) {
+  constructor(headers: AxiosRequestHeaders, baseUrl: string) {
     this.headers = headers;
     this.baseUrl = baseUrl;
-    this.tokenName = tokenName;
   }
 
   initHttp() {
