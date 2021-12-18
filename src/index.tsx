@@ -4,9 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { Auth0Provider } from "@auth0/auth0-react";
 
-import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from "config";
 import store, { StoreContext } from "common/store";
 import { muiTheme } from "theme/muiTheme";
@@ -28,5 +26,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-reportWebVitals();
