@@ -9,10 +9,11 @@ interface IButtonWithProgressProps extends ButtonProps {
 export const ButtonWithProgress: React.FC<IButtonWithProgressProps> = ({
   loading,
   children,
+  disabled,
   ...props
 }) => {
   return (
-    <Button {...props}>
+    <Button disabled={disabled || loading} {...props}>
       {loading && (
         <Box
           width="100%"
@@ -22,7 +23,7 @@ export const ButtonWithProgress: React.FC<IButtonWithProgressProps> = ({
           position="absolute"
           display="flex"
         >
-          <CircularProgress color="inherit" size={22} thickness={4}/>
+          <CircularProgress color="inherit" size={22} thickness={4} />
         </Box>
       )}
       <Box sx={{ opacity: loading ? 0 : "initial" }}>{children}</Box>

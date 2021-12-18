@@ -8,13 +8,12 @@ import { MIME_TYPES } from "./RandomCatStore";
 import { ButtonWithProgress } from "common/components/ButtonWithProgress";
 
 export const RandomCatsPage: React.FC = observer(() => {
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [mimeTabValue, setMimeTabValue] = useState(MIME_TYPES.ALL);
   const { randomCatStore } = useStore();
   const getCat = useCallback(async () => {
-    setIsLoading(true);
+    setLoading(true);
     await randomCatStore.getRandomCat(mimeTabValue);
-    setIsLoading(false);
   }, [mimeTabValue, randomCatStore]);
   useEffect(() => {
     getCat();
@@ -49,11 +48,12 @@ export const RandomCatsPage: React.FC = observer(() => {
               alt="random card"
               src={randomCatStore.currentCat.url}
               sx={{ objectFit: "contain" }}
+              onLoad={() => setLoading(false)}
             />
             <CardActions sx={{ pt: 2, pb: 2 }}>
               <Grid container justifyContent="center">
                 <ButtonWithProgress
-                  variant="contained"
+                  variant="outlined"
                   color="primary"
                   loading={loading}
                   onClick={getCat}
